@@ -1,11 +1,14 @@
-const topBtn = document.querySelector('#scrollToTopButton');
+const scrollToTop = () => {
+   const topBtn = document.querySelector("#scrollToTopButton");
 
-topBtn.addEventListener('click', (e) => {
-   e.preventDefault();
+   topBtn.addEventListener("click", (e) => {
+     e.preventDefault();
 
-   seamless.scrollIntoView(document.querySelector('.header'), {
-        behavior: "smooth",
-        block: "center",
-        inline: "center",
-    });
-})
+     seamless.scrollIntoView(document.querySelector(".header"), {
+       behavior: "smooth",
+       block: "center",
+       inline: "center",
+     });
+   });
+}
+scrollToTop()

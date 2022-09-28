@@ -29,6 +29,16 @@ const mainData = () => {
          `);
 
          list.forEach(item => {
+            const tagsBlock = document.createElement('ul')
+
+            item.tags.forEach(tag => {
+               tagsBlock.insertAdjacentHTML('afterbegin', `
+                  <li>${tag}</li>
+               `)
+            })
+
+            console.dir(tagsBlock);
+
             listBlock.insertAdjacentHTML(
               "afterbegin",
               `
@@ -39,16 +49,14 @@ const mainData = () => {
                         <div class="view"><i class="fa fa-eye"></i>${item.views}</div>
                      </div>
                      <div class="product__item__text">
-                        <ul>
-                           <li>Active</li>
-                           <li>Movie</li>
-                        </ul>
+                        ${tagsBlock.outerHTML}
                         <h5><a href="/anime-details.html">${item.title}</a></h5>
                      </div>
                   </div>
                </div>
             
-            `);
+            `
+            );
          })
 
          productBlock.append(listBlock)

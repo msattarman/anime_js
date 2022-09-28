@@ -1,7 +1,19 @@
 const mainData = () => {
 
+   const renderGanreList = (ganres) => {
+     const dropdownBlock = document.querySelector("header__menu, .dropdown")
+
+     dropdownBlock.innerHTML = ''
+
+     ganres.forEach(ganre => {
+         dropdownBlock.insertAdjacentHTML("afterbegin",`
+            <li><a href="./categories.html?ganre=${ganre}">${ganre}</a></li>
+         `);
+     })
+   }
+
    const renderAnimeList = (array, ganres) => {
-      const wrapper = document.querySelector(".product .col-lg-8");
+      const wrapper = document.querySelector(".product .col-lg-8")
       
       wrapper.innerHTML = ''
 
@@ -22,7 +34,7 @@ const mainData = () => {
                </div>
                <div class="col-lg-4 col-md-4 col-sm-4">
                    <div class="btn__all">
-                       <a href="/categories.html" class="primary-btn">View All <class="arrow_right"></class=></a>
+                       <a href="/categories.html?ganre=${ganre}" class="primary-btn">View All <class="arrow_right"></class=></a>
                   </div>
                </div>
             </div>
@@ -37,8 +49,6 @@ const mainData = () => {
                `)
             })
 
-            console.dir(tagsBlock);
-
             listBlock.insertAdjacentHTML(
               "afterbegin",
               `
@@ -50,7 +60,7 @@ const mainData = () => {
                      </div>
                      <div class="product__item__text">
                         ${tagsBlock.outerHTML}
-                        <h5><a href="/anime-details.html">${item.title}</a></h5>
+                        <h5><a href="/anime-details.html?itemId=${item.id}">${item.title}</a></h5>
                      </div>
                   </div>
                </div>
@@ -63,7 +73,7 @@ const mainData = () => {
          wrapper.append(productBlock)
 
          wrapper.querySelectorAll(".set-bg").forEach((elem) => {
-           elem.style.backgroundImage = `url(${elem.dataset.setbg})`;
+           elem.style.backgroundImage = `url(${elem.dataset.setbg})`
          });
       })
    }
@@ -85,7 +95,7 @@ const mainData = () => {
          );
       })
       wrapper.querySelectorAll(".set-bg").forEach((elem) => {
-        elem.style.backgroundImage = `url(${elem.dataset.setbg})`;
+        elem.style.backgroundImage = `url(${elem.dataset.setbg})`
       });
    }
 
@@ -103,6 +113,7 @@ const mainData = () => {
       })
       
       renderAnimeList(data.anime, ganres)
+      renderGanreList(ganres)
    })
 }
 mainData()

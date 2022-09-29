@@ -19,11 +19,14 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="./js/modal.js" defer></script>
+    <script src="./js/scrollToTop.js" defer></script>
+    <script src="./js/categoriesData.js" defer></script>
 </head>
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder" class="preloder">
+    <div id="preloder" class="preloder active">
         <div class="loader"></div>
     </div>
 
@@ -141,10 +144,11 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script>
+    <script src="https://cdn.jsdelivr.net/npm/seamless-scroll-polyfill@latest/lib/bundle.min.js"></script>
+    <!-- <script>
         const params = new URLSearchParams(window.location.search)
         console.log(params.get("ganre"));
-    </script>
+    </script> -->
 </body>
 
 </html>
